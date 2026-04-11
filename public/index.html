@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz Generator</title>
+    <!-- Use Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="glass-bg"></div>
+    <div id="dim-overlay" class="dim-overlay"></div>
+    <div class="container">
+        
+        <header>
+            <div id="player-profile">
+                <div class="avatar-container">
+                    <img id="avatar-img" src="https://api.dicebear.com/7.x/adventurer/svg?seed=LuckyGamer&backgroundColor=b6e3f4" alt="Player Avatar" />
+                    <div id="crown-graphic" class="award-graphic hidden">👑</div>
+                    <div id="medal-graphic" class="award-graphic hidden">🏆</div>
+                </div>
+            </div>
+            <h1>AI Quiz Generator <span class="sparkle">✨</span></h1>
+            <p class="subtitle">Enter a topic to magically generate a quick 5-question test!</p>
+        </header>
+
+        <section class="input-section">
+            <form id="quiz-form">
+                <div class="input-group">
+                    <input type="text" id="topic-input" placeholder="e.g., Digital Electronics, World War II" required autocomplete="off" />
+                    <button type="submit" id="generate-btn">
+                        <span class="btn-text">Generate Quiz</span>
+                        <div class="spinner hidden" id="loading-spinner"></div>
+                    </button>
+                </div>
+            </form>
+            <div id="error-message" class="error-message hidden"></div>
+        </section>
+
+        <section id="loading-indicator" class="hidden">
+            <div class="loader">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <p>Asking the AI brain... 🧠</p>
+        </section>
+
+        <section id="quiz-container" class="hidden">
+            <h2 id="quiz-topic-title"></h2>
+            
+            <div id="score-container" class="hidden">
+                <div class="score-card">
+                    <h3>Quiz Complete! 🎉</h3>
+                    <div class="score-circle">
+                        <span id="final-score-text">0/5</span>
+                    </div>
+                    <p id="score-message">Great job!</p>
+                </div>
+            </div>
+
+            <div id="questions-list"></div>
+        </section>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
