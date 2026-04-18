@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Initialize Gemini Client
-const ai = new GoogleGenerativeAI("PASTE_YOUR_GEMINI_API_KEY_HERE");
+const ai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 app.post('/api/quiz/generate', async (req, res) => {
   try {
     const { topic } = req.body;
