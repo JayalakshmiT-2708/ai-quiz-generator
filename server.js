@@ -27,10 +27,6 @@ app.post('/api/quiz/generate', async (req, res) => {
       return res.status(400).json({ success: false, error: 'Topic is required' });
     }
 
-    if (!process.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY === 'your_google_gemini_api_key_here') {
-      return res.status(500).json({ success: false, error: 'Gemini API key is missing. Please add it to the .env file.' });
-    }
-
     const promptText = `Generate 5 multiple choice questions (MCQs) on the topic '${topic}'.
 Rules:
 * Each question must have 4 options
