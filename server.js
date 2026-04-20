@@ -70,13 +70,15 @@ Return ONLY valid JSON in this format:
       quiz: parsedData.questions || parsedData.quiz || parsedData
     });
 
-  } catch (error) {
-    console.error('Error generating quiz:', error);
-    return res.status(500).json({ 
-      success: false, 
-      error: 'Failed to generate quiz. Make sure the API key is valid and check the backend console.' 
-    });
-  }
+ } catch (error) {
+  console.error('FULL ERROR:', error);
+  console.error('ERROR MESSAGE:', error.message);
+
+  return res.status(500).json({ 
+    success: false, 
+    error: 'Failed to generate quiz. Check backend logs.' 
+  });
+}
 });
 
 const PORT = process.env.PORT || 5000;
